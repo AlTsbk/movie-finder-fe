@@ -1,1 +1,31 @@
 @import "~materialize-css/dist/css/materialize.min.css";
+
+.log-in-form{
+    max-width: 400px;
+    margin: 70px auto;
+    padding: 20px;
+    color: #212121;
+}
+
+.log-in-form>*{
+    margin: 30px;
+}
+
+
+input:focus {
+    border-bottom: 1px solid #f57f17 !important;
+    box-shadow: 0 1px 0 0 #f57f17 !important;
+}
+
+input:focus + label {
+    color: #f57f17 !important;
+}
+
+input + label {
+    color: #212121 !important;
+}
+
+.secondary-btn{
+    background-color: #ffffff;
+    color: #f57f17;
+}
