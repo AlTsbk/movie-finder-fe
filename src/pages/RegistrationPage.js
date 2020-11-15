@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react"
+import { useHistory } from "react-router-dom";
 import { useHttp } from "../hooks/http.hook"
 import { useMessage } from "../hooks/message.hook";
 
 export const RegistrationPage = () => {
+    const history = useHistory();
     const message = useMessage();
     const {loading, error, request, clearError} = useHttp();
     const [password, setPassword] = useState({
@@ -44,6 +46,7 @@ export const RegistrationPage = () => {
         try {
             const data = await request("/api/auth/register", "POST", {...form});
             message(data.message, "rounded green accent-4");
+            history.push("/")
         } catch (error) {
             
         }

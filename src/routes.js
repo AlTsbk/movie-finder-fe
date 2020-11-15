@@ -1,5 +1,5 @@
 import React from "react"
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
 import { AuthPage } from "./pages/AuthPage";
 import { MainPage } from "./pages/MainPage";
 import { PageNotFound } from "./pages/PageNotFound";
@@ -22,7 +22,7 @@ export const useRoutes = isAuth => {
             <Route path="/" exact component={MainPage} />
             <Route path="/login" exact component={AuthPage}/>
             <Route path="/register" exact component={RegistrationPage} />
-            <Route component={PageNotFound} />
+            <Redirect to="/login" />
         </Switch>
     )
 };

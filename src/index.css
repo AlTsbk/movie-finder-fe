@@ -29,3 +29,7 @@ input + label {
     background-color: #ffffff;
     color: #f57f17;
 }
+
+.navbar{
+    padding: 0 50px;
+}
