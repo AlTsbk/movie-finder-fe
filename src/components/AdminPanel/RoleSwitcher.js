@@ -15,9 +15,7 @@ export const RoleSwitcher = ({user, getUsers}) => {
           const userId = user._id;
           const role = user.role === "Admin" ? "User" : "Admin";
     
-          const response = await request("/api/users/changeRole", "PUT", {userId, role}, {
-            Authorization: `Bearer ${token}`
-          });
+          const response = await request("/api/users/changeRole", "PUT", {userId, role});
     
           getUsers();
     

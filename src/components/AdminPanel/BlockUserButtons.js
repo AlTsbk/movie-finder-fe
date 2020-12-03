@@ -14,9 +14,7 @@ export const BlockUserButtons = ({user, getUsers}) => {
         try {
           const userId = user._id;
           const status = user.status === "active" ? "banned" : "active";
-          const response = await request("/api/users/ban", "PUT", {userId,status}, {
-            Authorization: `Bearer ${token}`
-          });
+          const response = await request("/api/users/ban", "PUT", {userId,status});
     
           getUsers();
           

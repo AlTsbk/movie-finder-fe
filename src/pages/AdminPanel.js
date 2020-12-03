@@ -13,9 +13,7 @@ export const AdminPanel = () => {
 
   const getUsers = useCallback( async () => {
     try {
-      const usersData = await request("/api/users/", "GET", null, {
-        Authorization: `Bearer ${token}`
-      });
+      const usersData = await request("/api/users/", "GET");
 
       setUsers(usersData);
 

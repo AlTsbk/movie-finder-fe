@@ -12,9 +12,7 @@ export const DeleteUserButton = ({user, getUsers}) => {
     const onDelete = useCallback( async (userId) => {
 
         try{
-          const response = await request(`/api/users/${userId}`, "DELETE", null, {
-            Authorization: `Bearer ${token}`
-          });
+          const response = await request(`/api/users/${userId}`, "DELETE");
       
           getUsers();
     

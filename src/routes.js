@@ -15,6 +15,7 @@ export const useRoutes = isAuth => {
                 <Route path="/" exact component={MainPage} />
                 <Route path="/profile" exact component={ProfilePage} />
                 <Route path="/adminPanel" exact component={AdminPanel} />
+                <Route path="/user/:id" exact component={ProfilePage} />
                 <Route component={PageNotFound} />
             </Switch>
         )
@@ -25,6 +26,7 @@ export const useRoutes = isAuth => {
             <Route path="/" exact component={MainPage} />
             <Route path="/login" exact component={AuthPage}/>
             <Route path="/register" exact component={RegistrationPage} />
+            <Route path="/user/:id" exact component={ProfilePage} />
             <Redirect to="/login" />
         </Switch>
     )
