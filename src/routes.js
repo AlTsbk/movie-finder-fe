@@ -5,13 +5,16 @@ import { MainPage } from "./pages/MainPage";
 import { PageNotFound } from "./pages/PageNotFound";
 import { ProfilePage } from "./pages/ProfilePage";
 import { RegistrationPage } from "./pages/RegistrationPage";
+import { AdminPanel } from "./pages/AdminPanel"
 
 export const useRoutes = isAuth => {
+    
     if(isAuth){
         return (
             <Switch>
                 <Route path="/" exact component={MainPage} />
                 <Route path="/profile" exact component={ProfilePage} />
+                <Route path="/adminPanel" exact component={AdminPanel} />
                 <Route component={PageNotFound} />
             </Switch>
         )

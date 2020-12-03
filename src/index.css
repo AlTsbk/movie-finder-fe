@@ -33,3 +33,22 @@ input + label {
 .navbar{
     padding: 0 50px;
 }
+
+.actions button{
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.hidden{
+    visibility: hidden;
+}
+
+.notDisplay{
+    display: none;
+}
+
+.loader{
+    display: flex;
+    justify-content: center;
+    margin-top: 200px;
+}

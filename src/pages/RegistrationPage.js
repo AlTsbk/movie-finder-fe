@@ -45,7 +45,7 @@ export const RegistrationPage = () => {
     const registerHandler = async () => {
         try {
             const data = await request("/api/auth/register", "POST", {...form});
-            message(data.message, "rounded green accent-4");
+            message(data.message, "accept");
             history.push("/")
         } catch (error) {
             
