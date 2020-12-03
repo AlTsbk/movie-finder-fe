@@ -41,8 +41,8 @@ export const UserTable = ({users, getUsers}) => {
                         <RoleSwitcher user={user} getUsers={getUsers}/>
                     </td>
                     <td className={user._id === userId ? "actions hidden" : "actions"}>
-                    <BlockUserButtons user={user} getUsers={getUsers}/>
-                    <DeleteUserButton user={user} getUsers={getUsers}/>
+                        <DeleteUserButton user={user} getUsers={getUsers}/>
+                        <BlockUserButtons user={user} getUsers={getUsers}/>
                     </td>
                 </tr>
                 );

@@ -27,19 +27,35 @@ export const AdminPanel = () => {
   useEffect(()=>{
     getUsers();
   }, [getUsers]);
+  
+  
+  if(!users.length){
+    if(loading){
+      return (
+        <div>
+          <Loader/>
+          <h1>No Data</h1>
+        </div>
+      );
+    }
+
+    return (
+      <h1>No Data</h1>
+    );
+
+  }
 
   if(loading){
     return (
-     <Loader/>
-    )
+      <div>
+        <Loader/>
+        <UserTable users={users} getUsers={getUsers}/>
+      </div>
+    );
   }
-  if(!users.length){
-    return (
-      <h1>No Data</h1>
-    )
-  }
-  
+
   return (
     <UserTable users={users} getUsers={getUsers}/>
   );
+
 }

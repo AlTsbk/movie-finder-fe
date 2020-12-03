@@ -5,7 +5,7 @@ import { useMessage } from "../../hooks/message.hook";
 
 export const RoleSwitcher = ({user, getUsers}) => {
 
-    const {token} = useContext(AuthContext);
+    const {token, userId} = useContext(AuthContext);
     const {request} = useHttp();
     const message = useMessage();
 
@@ -30,7 +30,7 @@ export const RoleSwitcher = ({user, getUsers}) => {
     return (
         <div className="switch">
             <label>
-                <input type="checkbox" checked={user.role === "Admin"} onChange={onChangeRole.bind(Event,user)}/>
+                <input disabled={user._id === userId} type="checkbox" checked={user.role === "Admin"} onChange={onChangeRole.bind(Event,user)}/>
                 <span className="lever"></span>
             </label>
         </div>
