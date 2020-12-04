@@ -1,33 +1,30 @@
 import React from 'react'
-import { useCallback, useState, useEffect } from 'react'
+import axios from "axios";
+import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom';
 import { Loader } from '../components/Loader';
-import {useHttp} from '../hooks/http.hook'
 import { formatter } from '../models/formatter';
-
+import { useMessage } from "../hooks/message.hook";
 
 export const ProfilePage = () => {
     
+    const message = useMessage();
     const [user, setUser] = useState(null);
-    const {request} = useHttp();
     const userId = useParams().id;
 
-    const getUser = useCallback(async () => {
-        try {
-            console.log(userId);
-            if(userId){
-                const userData = await request(`/api/users/${userId}`, "GET");
-            
-                setUser(userData);
-            }
-        } catch (error) {
-            console.log(error);
-        }
-    }, [request]);
+    const getUser = async () => {
+        await axios.get(`/api/users/${userId}`)
+            .then((response) => {
+                setUser(response.data);
+            })
+            .catch((error) => {
+                message(error.message, "error");
+            });
+    };
 
     useEffect(()=>{
         getUser();
-    }, [getUser]);
+    }, []);
 
     if(!user){
         return(
@@ -36,7 +33,7 @@ export const ProfilePage = () => {
     }
 
     return(
-        <div>
+        <div className="container">
             <h2>{user.name} {user.surname}</h2>
             <h5 className="grey-text text-darken-2">Email: {user.email}</h5>
             <h5 className="grey-text text-darken-2">Role: {user.role}</h5>

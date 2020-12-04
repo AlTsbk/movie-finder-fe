@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react"
+import axios from "axios";
 import { useHistory } from "react-router-dom";
-import { useHttp } from "../hooks/http.hook"
 import { useMessage } from "../hooks/message.hook";
 
 export const RegistrationPage = () => {
     const history = useHistory();
     const message = useMessage();
-    const {loading, error, request, clearError} = useHttp();
+    const [loading, setLoading] = useState(false);
     const [password, setPassword] = useState({
         password: "",
         confirmPassword: ""
@@ -18,11 +18,6 @@ export const RegistrationPage = () => {
         name: "",
         surname: ""
     });
-
-    useEffect(() => {
-        message(error);
-        clearError();
-    }, [error]);
 
     const changeHandler = event => {
         setForm({...form, [event.target.name]: event.target.value});
@@ -43,13 +38,17 @@ export const RegistrationPage = () => {
     }
 
     const registerHandler = async () => {
-        try {
-            const data = await request("/api/auth/register", "POST", {...form});
-            message(data.message, "accept");
-            history.push("/")
-        } catch (error) {
-            
-        }
+        setLoading(true);
+        axios.post("/api/auth/register", {...form})
+            .then((response) => {
+                message(response.message, "accept");
+                history.push("/");
+                setLoading(true);
+            })
+            .catch((error) => {
+                message(error.message, "error");
+                setLoading(true);
+            });
     }
 
     return (

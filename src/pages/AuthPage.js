@@ -1,36 +1,35 @@
-import React, { useState, useEffect, useContext } from "react"
+import React, { useState, useContext } from "react"
+import axios from "axios";
 import { useHistory } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
-import { useHttp } from "../hooks/http.hook"
 import { useMessage } from "../hooks/message.hook";
 
 export const AuthPage = () => {
     const history = useHistory();
     const auth = useContext(AuthContext);
     const message = useMessage();
-    const {loading, error, request, clearError} = useHttp();
+    const [loading, setLoading] = useState(false);
     const [form, setForm] = useState({
         email: "",
         password: ""
     });
-
-    useEffect(() => {
-        message(error);
-        clearError();
-    }, [error]);
 
     const changeHandler = event => {
         setForm({...form, [event.target.type]: event.target.value});
     }
 
     const loginHandler = async () => {
-        try {
-            const data = await request("/api/auth/login", "POST", {...form});
-            auth.login(data.token, data.userId);
-            history.push("/");
-        } catch (error) {
-            
-        }
+        setLoading(true);
+        axios.post("/api/auth/login", {...form})
+            .then((response) => {
+                auth.login(response.data.token, response.data.userId);
+                history.push("/");
+                setLoading(false);
+            })
+            .catch((error) => {
+              message(error.message, "error");
+              setLoading(false);
+            });
     }
 
     return (

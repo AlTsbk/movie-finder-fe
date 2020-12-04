@@ -1,30 +1,28 @@
-import React, { useCallback, useContext, useEffect, useState } from "react"
+import React, { useCallback, useEffect, useState } from "react"
+import axios from "axios";
 import { Loader } from "../components/Loader";
 import { UserTable } from "../components/AdminPanel/UserTable";
-import { AuthContext } from "../context/AuthContext";
-import {useHttp} from '../hooks/http.hook'
 import { useMessage } from "../hooks/message.hook";
 
 export const AdminPanel = () => {
-  const {token} = useContext(AuthContext);
-  const {request, loading} = useHttp();
+  const loading = false;
   const [users, setUsers] = useState([]);
   const message = useMessage();
 
   const getUsers = useCallback( async () => {
-    try {
-      const usersData = await request("/api/users/", "GET");
 
-      setUsers(usersData);
-
-    } catch (error) {
-      message(error.message, "error");
-    }
-  }, [request]);
+    await axios.get("/api/users/")
+        .then((response) => {
+          setUsers(response.data);
+        })
+        .catch((error) => {
+            message(error.message, "error");  
+        });
+  }, [axios]);
 
   useEffect(()=>{
     getUsers();
-  }, [getUsers]);
+  }, []);
   
   
   if(!users.length){
@@ -45,7 +43,7 @@ export const AdminPanel = () => {
 
   if(loading){
     return (
-      <div>
+      <div className="container">
         <Loader/>
         <UserTable users={users} getUsers={getUsers}/>
       </div>
@@ -53,7 +51,10 @@ export const AdminPanel = () => {
   }
 
   return (
+  <div className="container">
     <UserTable users={users} getUsers={getUsers}/>
+  </div>
+    
   );
 
 }

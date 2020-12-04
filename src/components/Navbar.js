@@ -1,40 +1,17 @@
 import { useCallback, useContext, useEffect, useState } from "react";
+import axios from "axios";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
-import {useHttp} from '../hooks/http.hook'
 import { Loader } from "./Loader";
 
 export const Navbar = () => {
     const auth = useContext(AuthContext);
-    const [user, setUser] = useState(null);
-    const {request} = useHttp();
-
-    const getUser = useCallback(async () => {
-        try {
-            if(auth.userId){
-                const userData = await request(`/api/users/${auth.userId}`, "GET");
-            
-                setUser(userData);
-            }
-           
-            
-        } catch (error) {
-            console.log(error);
-        }
-    }, [request]);
-
-    useEffect(()=>{
-        getUser();
-    }, [getUser]);
 
     const logoutHandler = event =>{
         auth.logout();
     }
 
     if(auth.isAuthenticated){
-        if(!user){
-            <Loader />
-        }
         return (
             <nav className="grey darken-4 navbar">
                 <div className="nav-wrapper">

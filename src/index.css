@@ -63,3 +63,149 @@ input + label {
     padding-top: 300px;
     opacity: .7;
 }
+
+.main-slider-item{
+    display: flex;
+    justify-content: center;
+    height: auto;
+    max-height: 800px;
+}
+
+.main-slider-image{
+    width: 100%;
+}
+
+.main-slider-title{
+    background-color: #f57f17;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    top: 70%;
+    color: #ffffff;
+    position: fixed;
+    text-transform: uppercase;
+}
+
+.main-slider-shadow{
+    opacity: .05;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+}
+
+.card{
+   width: 400px;
+   height: 700px;
+}
+
+.card img{
+    height: 600px;
+     
+ }
+
+.card-content h6{
+    font-weight: bold;
+    color: #212121;
+}
+
+.section-title{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-left: 30px;
+    font-weight: 100;
+    color: #212121;
+}
+
+
+.details-page-poster{
+    height: 500px;
+    margin: 10px;
+    margin-right: 50px;
+}
+
+.movie-title{
+    font-weight: 600;
+    color: #212121;
+    font-size: 40px;
+    margin: 0;
+}
+
+.movie-details-page{
+    margin-top: 50px;
+    display: flex;
+}
+
+.movie-tagline{
+    margin: 0;
+    margin-bottom: 15px;
+    color: #616161 ;
+}
+
+.movie-detail{
+    font-size: 15px;
+    margin: 0;
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+
+.movie-detail-container{
+    display: flex;
+}
+
+.movie-detail-title{
+    margin: 0;
+}
+
+.company-logo{
+    height: 30px;
+}
+
+.rate-container{
+    margin: 40px 0;
+}
+
+.rate-container a{
+    margin-right: 20px;
+}
+
+.comments-section{
+    margin-top: 50px;
+}
+
+.comment-form{
+    display: flex;
+}
+
+.comments-section{
+    margin-bottom: 100px;
+}
+
+.no-comments-message{
+    font-size: 30px;
+    color: #616161;
+}
+
+.comment{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    padding: 25px;
+    border-bottom: 1px solid #ccc;
+}
+
+.commentator{
+    font-size: 20px;
+    font-weight: bolder;
+    color: #616161;
+    margin: 0;
+}
+
+.comment-text{
+    margin: 0;
+    margin-top: 10px;
+}
+
+.comment-date{
+    color: #616161;
+}

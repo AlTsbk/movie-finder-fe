@@ -1,29 +1,28 @@
-import React, { useCallback, useContext } from "react"
-import {useHttp} from '../../hooks/http.hook'
+import React, { useContext } from "react"
+import axios from "axios";
 import { AuthContext } from "../../context/AuthContext";
 import { useMessage } from "../../hooks/message.hook";
 
 export const RoleSwitcher = ({user, getUsers}) => {
 
-    const {token, userId} = useContext(AuthContext);
-    const {request} = useHttp();
+    const { userId } = useContext(AuthContext);
     const message = useMessage();
 
-    const onChangeRole = useCallback( async (user) => {
+    const onChangeRole = async (user) => {
 
-        try{
-          const userId = user._id;
-          const role = user.role === "Admin" ? "User" : "Admin";
-    
-          const response = await request("/api/users/changeRole", "PUT", {userId, role});
-    
+      const userId = user._id;
+      const role = user.role === "Admin" ? "User" : "Admin";
+
+      await axios.put("/api/users/changeRole", {userId, role})
+        .then((response) => {
           getUsers();
-    
           message(response.message, "accept");
-        }catch(error){
-          message(error.message, "error");
-        }
-      }, [request]);
+        })
+        .catch((error) => {
+            message(error.message, "error");  
+        });
+
+      };
 
     return (
         <div className="switch">
