@@ -13,7 +13,7 @@ export const movieApi = ()=> {
             params: {
                 api_key: apiKey,
                 language: "en_US",
-                page: 2
+                page: 1
             }
         });
 
@@ -54,5 +54,22 @@ export const movieApi = ()=> {
         return data;
     }
 
-    return ({getNowPlayingMovies, getTopRatedMovies, getMovieDetails});
+    const getSimilarMovies = async (id) => {
+        const {data} = await axios.get(movieDetails + id + "/similar", {
+            params: {
+                api_key: apiKey,
+                language: "en_US"
+            }
+        });
+
+        debugger;
+
+        return data.results.map(movie => {
+            movie.poster_path = urlToImage + movie.poster_path;
+            movie.backdrop_path = urlToImage + movie.backdrop_path;
+            return movie;
+        });
+    }
+
+    return ({getNowPlayingMovies, getTopRatedMovies, getMovieDetails, getSimilarMovies});
 }

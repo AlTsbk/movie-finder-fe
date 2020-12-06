@@ -13,7 +13,6 @@ export const CommentForm = ({movieId, getComments}) => {
         const text = comment;
         await axios.post("/api/comments", {movieId, userId, text})
             .then((response)=>{
-                message(response.message, "accept");
                 setComment("");
                 getComments(movieId);
             }).catch((error) => {

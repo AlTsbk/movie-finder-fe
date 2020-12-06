@@ -3,7 +3,7 @@ import axios from "axios";
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom';
 import { Loader } from '../components/Loader';
-import { formatter } from '../models/formatter';
+import formatter from '../models/formatter';
 import { useMessage } from "../hooks/message.hook";
 
 export const ProfilePage = () => {

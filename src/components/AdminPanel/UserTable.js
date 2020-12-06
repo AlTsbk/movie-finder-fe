@@ -1,5 +1,5 @@
 import React, { useContext } from "react"
-import {formatter} from "../../models/formatter"
+import formatter from "../../models/formatter"
 import { BlockUserButtons } from "./BlockUserButtons"
 import { DeleteUserButton } from "./DeleteUserButton"
 import { RoleSwitcher } from "./RoleSwitcher"
