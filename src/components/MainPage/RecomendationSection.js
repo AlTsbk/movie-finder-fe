@@ -20,7 +20,7 @@ export const RecomendationSection = () => {
         if(userId){
             await axios.get(`api/users/${userId}`)
             .then(async (response)=>{
-                if(response.data.likedMovies){
+                if(response.data.likedMovies.length){
                     indexOfRandomMovie = Math.floor((Math.random() * response.data.likedMovies.length));
                     getMovies(response.data.likedMovies[indexOfRandomMovie]);
                     getMovie(response.data.likedMovies[indexOfRandomMovie]);
@@ -55,22 +55,16 @@ export const RecomendationSection = () => {
             <MovieCard movie={movie}/>
     ));
 
-    if(!userId){
+    if(!userId || !movies){
         return(
             <div></div>
         )
     }
-    
-    if(!movies){
-        return(
-            <Loader/>
-        )
-    }
 
     return(
-        <div className="container">
-            <h3 class="section-title">Because you liked "{movieTitle}"</h3>
-            <Slider autoplay={true} autoplaySpeed={3000} slidesToShow={3} slidesToScroll={3}>
+        <div>
+            <h4 class="section-title">Because you liked "{movieTitle}"</h4>
+            <Slider autoplay={true} autoplaySpeed={3000} slidesToShow={5} slidesToScroll={5}>
                 {renderSlides()}
             </Slider>
         </div>

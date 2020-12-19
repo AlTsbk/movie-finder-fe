@@ -17,6 +17,18 @@
         }
 
         return (<p className="movie-rating grey-text text-darken-3">{rating}</p>)
+    },
+
+    ratingInCardFormatter: (rating) => {
+        if(rating < 0){
+            return (<a className={`btn-floating halfway-fab movie-card-note red darken-4}`}>{rating}</a>)
+        }
+
+        if(rating > 0){
+            return (<a className={`btn-floating halfway-fab movie-card-note green darken-2}`}>{rating}</a>)
+        }
+
+        return (<a className={`btn-floating halfway-fab movie-card-note grey darken-4}`}>{rating}</a>)
     }
 }
 

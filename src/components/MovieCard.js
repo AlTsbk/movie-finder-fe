@@ -1,6 +1,28 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios"
+import formatter from "../models/formatter"
 
 export const MovieCard = ({movie}) => {
+
+    const [ratedMovie, setRatedMovie] = useState(null);
+    const [movieRating, setMovieRating] = useState(0);
+
+    const getMovieRating = (movieId) => {
+        axios.get(`/api/movies/${movieId}`)
+            .then((response) => {
+                setRatedMovie(response.data);
+                setMovieRating(response.data.positiveNotes.length - response.data.negativeNotes.length)
+            })
+            .catch((error) => {
+                
+            });
+    }
+
+    useEffect(()=>{
+        getMovieRating(movie.id);
+    }, []);
+
     return (
         
             <div className="row">
@@ -8,12 +30,11 @@ export const MovieCard = ({movie}) => {
                 <div className="card">
                     <div className="card-image">
                         <img src={movie.poster_path}/>
-                        {/* <a className="btn-floating halfway-fab waves-effect waves-light green like-button"><i className="material-icons">thumb_up</i></a>
-                        <a className="btn-floating halfway-fab waves-effect waves-light red dislike-button"><i className="material-icons">thumb_down</i></a> */}
+                        {formatter.ratingInCardFormatter(movieRating)}
                     </div>
                     <Link to={`/movie/${movie.id}`}>
                         <div className="card-content">
-                            <h6>{movie.title}</h6>
+                            <p className="movie-card-title">{movie.title}</p>
                         </div>
                     </Link>
                 </div>

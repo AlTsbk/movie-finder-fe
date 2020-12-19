@@ -26,15 +26,15 @@ export const AuthPage = () => {
                 history.push("/");
                 setLoading(false);
             })
-            .catch((error) => {
-              message(error.message, "error");
+            .catch((e) => {
+              message(e.response.data.message, "error");
               setLoading(false);
             });
     }
 
     return (
         <div className="log-in-page">
-            <div className="card center-align log-in-form">
+            <div className="center-align log-in-form">
                 <h3>LOG IN</h3>
                 <div className="input-field">
                     <input id="email_inline" type="email" className="validate" onChange={changeHandler}/>

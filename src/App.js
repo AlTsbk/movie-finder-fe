@@ -14,8 +14,8 @@ function App() {
       token, login, logout, userId, isAuthenticated
     }}>
       <Router>
-      <Navbar />
-        <div>
+        <div className="container app">
+          <Navbar />
           {routes}     
         </div>
       </Router>

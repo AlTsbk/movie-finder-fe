@@ -15,8 +15,10 @@ export const CommentForm = ({movieId, getComments}) => {
             .then((response)=>{
                 setComment("");
                 getComments(movieId);
+                debugger;
+                message(response.data.message, "accept");
             }).catch((error) => {
-                message(error.message, "error");
+                message(error.response.data.message, "error");
             })
         
     }
@@ -28,7 +30,7 @@ export const CommentForm = ({movieId, getComments}) => {
     if(!isAuthenticated){
         return (
             <div class="center-align">
-                <p className="no-comments-message">Login for leave comment</p>
+                <p className="no-comments-message">Login for leave review</p>
             </div>
             
         )

@@ -6,6 +6,7 @@ const urlToImage = "https://image.tmdb.org/t/p/original"
 const nowPlaying = `${url}/movie/now_playing`
 const topRated = `${url}/movie/top_rated`
 const movieDetails = `${url}/movie/`
+const search = `${url}/search/movie`
 
 export const movieApi = ()=> {
     const getNowPlayingMovies = async () => {
@@ -55,14 +56,13 @@ export const movieApi = ()=> {
     }
 
     const getSimilarMovies = async (id) => {
-        const {data} = await axios.get(movieDetails + id + "/similar", {
+        const {data} = await axios.get(movieDetails + id + "/recommendations", {
             params: {
                 api_key: apiKey,
                 language: "en_US"
             }
         });
 
-        debugger;
 
         return data.results.map(movie => {
             movie.poster_path = urlToImage + movie.poster_path;
@@ -71,5 +71,22 @@ export const movieApi = ()=> {
         });
     }
 
-    return ({getNowPlayingMovies, getTopRatedMovies, getMovieDetails, getSimilarMovies});
+    const searchMovies = async (searchText) => {
+        const {data} = await axios.get(search, {
+            params: {
+                api_key: apiKey,
+                language: "en_US",
+                query: searchText
+            }
+        });
+
+
+        return data.results.map(movie => {
+            movie.poster_path = urlToImage + movie.poster_path;
+            movie.backdrop_path = urlToImage + movie.backdrop_path;
+            return movie;
+        });
+    }
+
+    return ({getNowPlayingMovies, getTopRatedMovies, getMovieDetails, getSimilarMovies, searchMovies});
 }

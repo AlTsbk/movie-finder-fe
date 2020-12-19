@@ -31,6 +31,10 @@ export const RatingButtons = ({movieId, ratedMovie, userId, getMovieRating}) => 
     useEffect(()=>{
         findUserNote();
     }, [ratedMovie]);
+
+    if(!userId){
+        return (<div></div>)
+    }
     
     return (
         <div className="rate-container">

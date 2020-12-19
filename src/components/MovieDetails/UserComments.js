@@ -3,7 +3,7 @@ export const UserComments = ({comments}) => {
     if(!comments.length){
         return (
             <div className="center-align">
-                <p className="no-comments-message">No comments yet</p>
+                <p className="no-comments-message">No reviews yet</p>
             </div>
         )
     }

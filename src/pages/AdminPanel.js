@@ -5,18 +5,20 @@ import { UserTable } from "../components/AdminPanel/UserTable";
 import { useMessage } from "../hooks/message.hook";
 
 export const AdminPanel = () => {
-  const loading = false;
+  const [loading, setLoading] = useState(false);
   const [users, setUsers] = useState([]);
   const message = useMessage();
 
   const getUsers = useCallback( async () => {
-
+    setLoading(true);
     await axios.get("/api/users/")
         .then((response) => {
           setUsers(response.data);
+          setLoading(false);
         })
         .catch((error) => {
-            message(error.message, "error");  
+            message(error.message, "error");
+            setLoading(false);
         });
   }, [axios]);
 
@@ -43,7 +45,7 @@ export const AdminPanel = () => {
 
   if(loading){
     return (
-      <div className="container">
+      <div>
         <Loader/>
         <UserTable users={users} getUsers={getUsers}/>
       </div>
@@ -51,7 +53,7 @@ export const AdminPanel = () => {
   }
 
   return (
-  <div className="container">
+  <div>
     <UserTable users={users} getUsers={getUsers}/>
   </div>
     

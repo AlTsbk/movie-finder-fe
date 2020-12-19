@@ -33,7 +33,7 @@ export const ProfilePage = () => {
     }
 
     return(
-        <div className="container">
+        <div>
             <h2>{user.name} {user.surname}</h2>
             <h5 className="grey-text text-darken-2">Email: {user.email}</h5>
             <h5 className="grey-text text-darken-2">Role: {user.role}</h5>

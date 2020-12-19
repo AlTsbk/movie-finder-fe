@@ -43,17 +43,24 @@ export const RegistrationPage = () => {
             .then((response) => {
                 message(response.message, "accept");
                 history.push("/");
-                setLoading(true);
+                setLoading(false);
             })
-            .catch((error) => {
-                message(error.message, "error");
-                setLoading(true);
+            .catch((e) => {
+                if(e.response.data.errors){
+                    e.response.data.errors.forEach(error => {
+                        message(error.msg, "error");
+                    });
+                }else{
+                    message(e.response.data.message, "error");
+                }
+                
+                setLoading(false);
             });
     }
 
     return (
         <div className="log-in-page">
-            <div className="card center-align log-in-form">
+            <div className="center-align log-in-form">
                 <h3>REGISTER</h3>
                 <div className="input-field">
                     <input id="email_inline" type="email" name="email" className="validate" onChange={changeHandler}/>

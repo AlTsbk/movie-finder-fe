@@ -7,6 +7,7 @@ import { ProfilePage } from "./pages/ProfilePage";
 import { RegistrationPage } from "./pages/RegistrationPage";
 import { AdminPanel } from "./pages/AdminPanel"
 import { MovieDetails } from "./pages/MovieDetails";
+import { FindMoviePage } from "./pages/FindMoviePage";
 
 export const useRoutes = isAuth => {
     
@@ -18,6 +19,8 @@ export const useRoutes = isAuth => {
                 <Route path="/adminPanel" exact component={AdminPanel} />
                 <Route path="/user/:id" exact component={ProfilePage} />
                 <Route path="/movie/:id" exact component={MovieDetails} />
+                <Route path="/findMovie" exact component={FindMoviePage} />
+                <Redirect to="/" />
                 <Route component={PageNotFound} />
             </Switch>
         )
@@ -30,6 +33,7 @@ export const useRoutes = isAuth => {
             <Route path="/register" exact component={RegistrationPage} />
             <Route path="/user/:id" exact component={ProfilePage} />
             <Route path="/movie/:id" exact component={MovieDetails} />
+            <Route path="/findMovie" exact component={FindMoviePage} />
             <Redirect to="/login" />
         </Switch>
     )

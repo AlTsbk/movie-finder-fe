@@ -44,7 +44,7 @@ export const DetailsPart = ({movieId}) => {
     }
 
     return (
-        <div className="container movie-details-page">
+        <div className="movie-details-page">
             <img className="details-page-poster" src={movie.poster_path} />
             <div className="">
                 <div className="movie-header">

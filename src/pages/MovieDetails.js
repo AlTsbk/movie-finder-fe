@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { CommentsPart } from '../components/MovieDetails/CommentsPart';
 import { DetailsPart } from '../components/MovieDetails/DetailsPart';
+import { SimilarMovies } from '../components/MovieDetails/SimilarMovies';
 
 export const MovieDetails = () => {
 
@@ -9,6 +10,7 @@ export const MovieDetails = () => {
     return (
         <div>
             <DetailsPart movieId={movieId} />
+            <SimilarMovies movieId={movieId} />
             <CommentsPart movieId={movieId} />
         </div>
         
