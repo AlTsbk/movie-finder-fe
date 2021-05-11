@@ -22,8 +22,14 @@ export const DetailsPart = ({movieId}) => {
     const getMovieRating = async () => {
         axios.get(`/api/movies/${movieId}`)
             .then((response) => {
-                setRatedMovie(response.data);
-                setMovieRating(response.data.positiveNotes.length - response.data.negativeNotes.length)
+                if(response.data){
+                    setRatedMovie(response.data);
+                    setMovieRating(response.data.positiveNotes.length - response.data.negativeNotes.length)
+                }else{
+                    setRatedMovie(null);
+                    setMovieRating(0)
+                }
+                
             })
             .catch((error) => {
                 
@@ -33,7 +39,7 @@ export const DetailsPart = ({movieId}) => {
     useEffect(  () => {
         getMovie();
         getMovieRating();
-    }, []);
+    }, [movieId, ratedMovie]);
 
     
 

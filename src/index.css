@@ -255,3 +255,15 @@ input + label {
 .movie-card-note{
     text-align: center;
 }
+
+.load{
+    background-color: #ccc;
+    z-index: 10;
+    width: 1000px;
+}
+
+.loading-card{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

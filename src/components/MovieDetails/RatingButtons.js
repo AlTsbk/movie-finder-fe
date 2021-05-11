@@ -24,6 +24,8 @@ export const RatingButtons = ({movieId, ratedMovie, userId, getMovieRating}) => 
             if(ratedMovie.positiveNotes.includes(userId)){
                 setUsersNote(1)
             }
+        }else{
+            setUsersNote(0)
         }
         
     }

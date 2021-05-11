@@ -15,7 +15,6 @@ export const CommentForm = ({movieId, getComments}) => {
             .then((response)=>{
                 setComment("");
                 getComments(movieId);
-                debugger;
                 message(response.data.message, "accept");
             }).catch((error) => {
                 message(error.response.data.message, "error");

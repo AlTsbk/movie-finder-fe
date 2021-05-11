@@ -11,17 +11,16 @@ export const SimilarMovies = ({ movieId }) => {
     const [movies, setMovies] = useState(null);
 
     const getMovies = async (movieId) => {
-        debugger;
-        const data = await getSimilarMovies(movieId);
-        setMovies(data);
+        if(movieId){
+            const data = await getSimilarMovies(movieId);
+            setMovies(data);
+        }
     }
 
    
 
     useEffect( async () => {
-        if(movieId){
-            getMovies(movieId);
-        }
+        getMovies(movieId);
     }, [movieId]);
 
     const renderSlides = () =>
