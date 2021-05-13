@@ -267,3 +267,41 @@ input + label {
     justify-content: center;
     align-items: center;
 }
+
+.profile-container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.profile-info{
+    display: flex;
+    justify-content: space-between;
+}
+
+.profile-info>div{
+    margin: 0 100px;
+    padding-left: 20px;
+    border-left: 5px  #f57f17 solid;
+}
+
+.profile-charts{
+    margin-top: 100px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.profile-charts>div {
+    width: 300px;
+    height: 300px;
+    margin: 0 100px;
+}
+
+.actors-chart{
+    margin: 200px 0;
+    width: 80%;
+}
+
+.chart-title{
+    text-align: center;
+}

@@ -71,6 +71,17 @@ export const movieApi = ()=> {
         });
     }
 
+    const getMovieCredits = async (id) => {
+        const {data} = await axios.get(movieDetails + id + "/credits", {
+            params: {
+                api_key: apiKey,
+                language: "en_US"
+            }
+        });
+
+        return data;
+    }
+
     const searchMovies = async (searchText) => {
         const {data} = await axios.get(search, {
             params: {
@@ -88,5 +99,5 @@ export const movieApi = ()=> {
         });
     }
 
-    return ({getNowPlayingMovies, getTopRatedMovies, getMovieDetails, getSimilarMovies, searchMovies});
+    return ({getNowPlayingMovies, getTopRatedMovies, getMovieDetails, getSimilarMovies, searchMovies, getMovieCredits});
 }

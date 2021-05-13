@@ -1,5 +1,5 @@
 import {movieApi} from "../../models/movieApi"
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../context/AuthContext"
 import axios from "axios"
 import { DetailsPart } from "../MovieDetails/DetailsPart";
@@ -7,7 +7,7 @@ import { DetailsPart } from "../MovieDetails/DetailsPart";
 export const BestMovieForYou = () => {
 
     const {userId} = useContext(AuthContext);
-    const {getSimilarMovies, getMovieDetails} = movieApi();
+    const {getSimilarMovies} = movieApi();
     const [bestMovie, setBestMovie] = useState(null);
 
     const getLickedMovies = async () => {
@@ -59,7 +59,7 @@ export const BestMovieForYou = () => {
 
     return(
         <div>
-            <h4 class="section-title">Movie which you'll like</h4>
+            <h4 class="section-title">The Best Movie for You</h4>
             <DetailsPart movieId={bestMovie} />
         </div>
     )
