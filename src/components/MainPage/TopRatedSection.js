@@ -6,6 +6,8 @@ import {Loader} from "../../components/Loader"
 import Slider from "react-slick";
 import { MovieCard } from "../MovieCard";
 import { Link } from "react-router-dom";
+import {configValues} from "../configValues"
+
 
 export const TopRatedSection = () => {
 
@@ -35,7 +37,7 @@ export const TopRatedSection = () => {
     return (
         <div>
             <Link><h4 class="section-title">Top Rated Movies</h4></Link>
-            <Slider autoplay={true} autoplaySpeed={3000} slidesToShow={5} slidesToScroll={5}>
+            <Slider autoplay={true} autoplaySpeed={3000} slidesToShow={4} slidesToScroll={4} responsive={configValues.respValForSlider}>
                 {renderSlides()}
             </Slider>
         </div>

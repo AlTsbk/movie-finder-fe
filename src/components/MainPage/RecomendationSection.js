@@ -4,9 +4,9 @@ import "slick-carousel/slick/slick-theme.css";
 import {movieApi} from "../../models/movieApi"
 import Slider from "react-slick";
 import { MovieCard } from "../MovieCard";
-import {Loader} from "../../components/Loader"
 import { AuthContext } from "../../context/AuthContext"
 import axios from "axios"
+import {configValues} from "../configValues"
 
 export const RecomendationSection = () => {
 
@@ -64,7 +64,7 @@ export const RecomendationSection = () => {
     return(
         <div>
             <h4 class="section-title">Because you liked "{movieTitle}"</h4>
-            <Slider autoplay={true} autoplaySpeed={3000} slidesToShow={5} slidesToScroll={5}>
+            <Slider autoplay={true} autoplaySpeed={3000} slidesToShow={4} slidesToScroll={4} responsive={configValues.respValForSlider}>
                 {renderSlides()}
             </Slider>
         </div>
