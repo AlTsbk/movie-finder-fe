@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { Loader } from "./Loader"
 import {LoadingCard} from "./LoadingCard"
 import axios from "axios"
 import formatter from "../models/formatter"

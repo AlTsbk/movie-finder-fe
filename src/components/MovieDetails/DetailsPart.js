@@ -39,7 +39,7 @@ export const DetailsPart = ({movieId}) => {
     useEffect(  () => {
         getMovie();
         getMovieRating();
-    }, [movieId, ratedMovie]);
+    }, [movieId]);
 
     
 

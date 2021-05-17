@@ -10,10 +10,12 @@ export const BestMovieForYou = () => {
     const {getSimilarMovies} = movieApi();
     const [bestMovie, setBestMovie] = useState(null);
 
-    const getLickedMovies = async () => {
+    const getLikedMovies = async () => {
         await axios.get(`/api/users/${userId}`)
             .then((response) => {
-                chooseBestMovie(response.data.likedMovies, response.data.dislikedMovies);
+                if(response.data.likedMovies){
+                    chooseBestMovie(response.data.likedMovies, response.data.dislikedMovies);
+                }
             })
             .catch((error) => {
                 console.log(error);
@@ -55,11 +57,20 @@ export const BestMovieForYou = () => {
         setBestMovie(sortedMovies[0]);
     }
 
-   getLickedMovies();
+    getLikedMovies();
 
+    if(!bestMovie){
+        return(
+            <div>
+                <h4 className="section-title">The Best Movie for You</h4>
+                <h6 className="section-info">You need to like something for get recomendations</h6>
+            </div>
+        )
+    }
+    
     return(
         <div>
-            <h4 class="section-title">The Best Movie for You</h4>
+            <h4 className="section-title">The Best Movie for You</h4>
             <DetailsPart movieId={bestMovie} />
         </div>
     )

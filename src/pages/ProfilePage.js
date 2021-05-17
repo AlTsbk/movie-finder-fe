@@ -66,8 +66,6 @@ export const ProfilePage = () => {
             return await getMovieCredits(movieId);
         }));
 
-        debugger;
-
         let actorsLabels = [];
         let actorsData = [];
         let actorsColors = [];
@@ -94,8 +92,6 @@ export const ProfilePage = () => {
             actorsData.push(actors[item]);
             actorsColors.push(randomColor())
         });
-
-        debugger;
 
         Object.keys(directors).sort((curDirector,nextDirector) => {
             return directors[nextDirector] - directors[curDirector];
@@ -135,19 +131,21 @@ export const ProfilePage = () => {
                     <h6 className="grey-text text-darken-2">Disliked: {user.dislikedMovies.length}</h6>
                 </div>
             </div>
-            <div className="profile-charts">
-                <div className="genres-chart">
-                    <h4 className="grey-text text-darken-2 chart-title">Favorite Genres</h4>
-                    <Doughnut data={genresDataSet}/>
+            <div className={user.likedMovies.length ? "profile-charts" : "profile-charts hide"}>
+                <div className="doughnut-charts">
+                    <div className="genres-chart">
+                        <h4 className="grey-text text-darken-2 chart-title">Favorite Genres</h4>
+                        <Doughnut data={genresDataSet}/>
+                    </div>
+                    <div className="directors-chart">
+                        <h4 className="grey-text text-darken-2 chart-title">Favorite Directors</h4>
+                        <Doughnut data={directorsDataSet}/>
+                    </div>
                 </div>
-                <div className="directors-chart">
-                    <h4 className="grey-text text-darken-2 chart-title">Favorite Directors</h4>
-                    <Doughnut data={directorsDataSet}/>
+                <div className="actors-chart">
+                    <h4 className="grey-text text-darken-2 chart-title">Favorite Actors</h4>
+                    <Bar data={actorsDataSet}/>
                 </div>
-            </div>
-            <div className="actors-chart">
-                <h4 className="grey-text text-darken-2 chart-title">Favorite Actors</h4>
-                <Bar data={actorsDataSet}/>
             </div>
         </div>
     )

@@ -1,7 +1,7 @@
 import { CommentForm } from "./CommentFrom"
 import { UserComments } from "./UserComments"
 import axios from "axios"
-import { useCallback, useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 import { Loader } from "../Loader"
 
 export const CommentsPart = ({movieId}) => {

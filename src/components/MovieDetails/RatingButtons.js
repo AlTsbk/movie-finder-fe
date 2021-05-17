@@ -1,14 +1,15 @@
 import axios from "axios"
 import { useEffect, useState } from "react";
+
 export const RatingButtons = ({movieId, ratedMovie, userId, getMovieRating}) => {
 
     const [usersNote, setUsersNote] = useState(0);
     
     const rateMovie = async (note) => {
+        setUsersNote(note > 0 ? 1 : -1);
         await axios.put("/api/movies/rate", {movieId, userId, note})
             .then(() => {
                 getMovieRating();
-                findUserNote();
             })
             .catch((error) => {
                 console.error(error.message);

@@ -2,7 +2,6 @@ import React from "react"
 import axios from "axios";
 import { useMessage } from "../../hooks/message.hook";
 
-
 export const BlockUserButtons = ({user, getUsers}) => {
     const message = useMessage();
 

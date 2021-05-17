@@ -119,6 +119,11 @@ input + label {
     text-align: center;
 }
 
+.section-info{
+    text-align: center;
+    color: #616161;
+}
+
 
 .details-page-poster{
     height: 500px;
@@ -285,13 +290,13 @@ input + label {
     border-left: 5px  #f57f17 solid;
 }
 
-.profile-charts{
+.doughnut-charts{
     margin-top: 100px;
     display: flex;
     flex-wrap: wrap;
 }
 
-.profile-charts>div {
+.doughnut-charts>div {
     width: 300px;
     height: 300px;
     margin: 0 100px;
@@ -299,7 +304,7 @@ input + label {
 
 .actors-chart{
     margin: 200px 0;
-    width: 80%;
+    width: 100%;
 }
 
 .chart-title{

@@ -1,0 +1,6 @@
+---
+applications:
+- name: MovieFinder
+  path: build/
+  instances: 1
+  memory: 1024M
