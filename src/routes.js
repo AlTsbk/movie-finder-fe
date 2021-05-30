@@ -19,7 +19,7 @@ export const useRoutes = isAuth => {
                 <Route path="/adminPanel" exact component={AdminPanel} />
                 <Route path="/user/:id" exact component={ProfilePage} />
                 <Route path="/movie/:id" exact component={MovieDetails} />
-                <Route path="/findMovie" exact component={FindMoviePage} />
+                <Route path="/findMovie/:searchText" exact component={FindMoviePage} />
                 <Redirect to="/" />
                 <Route component={PageNotFound} />
             </Switch>
@@ -33,7 +33,7 @@ export const useRoutes = isAuth => {
             <Route path="/register" exact component={RegistrationPage} />
             <Route path="/user/:id" exact component={ProfilePage} />
             <Route path="/movie/:id" exact component={MovieDetails} />
-            <Route path="/findMovie" exact component={FindMoviePage} />
+            <Route path="/findMovie/:searchText" exact component={FindMoviePage} />
             <Redirect to="/login" />
         </Switch>
     )

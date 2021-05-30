@@ -243,9 +243,8 @@ input + label {
     justify-content: space-between;
 }
 
-.filters .input-field {
+.input-field {
     width: 100%;
-    margin-right: 50px;
 }
 
 .found-movies{
@@ -309,4 +308,48 @@ input + label {
 
 .chart-title{
     text-align: center;
+}
+
+.search{
+   background-color: none;
+   display: flex;
+   align-items: center;
+   width: 500px;
+}
+
+.navigation{
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+}
+
+.navigation a{
+    color: #f57f17;
+}
+
+.logo img {
+    height: 70px;
+}
+
+
+.search-btn{
+    height: 35px;
+    width: 35px;
+    border-radius: 15px;
+    background-color: #212121;
+    cursor: pointer;
+    color: #f57f17;
+    text-align: center;
+    margin-left: 10px;
+    margin-bottom: 40px;
+}
+
+.search-btn:hover{
+    color: #fff;
+    transition: 0.1s;
+}
+
+.search-input{
+    width: 500px;
+    color: #ccc;
 }
