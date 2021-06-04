@@ -65,37 +65,37 @@ export const DetailsPart = ({movieId}) => {
                 </div>
                 <RatingButtons movieId={movieId} ratedMovie={ratedMovie} userId={userId} getMovieRating={getMovieRating} />
                 <div className="movie-detail-container">
-                    <p className="movie-detail-title grey-text text-darken-1">Budget:</p>
+                    <p className="movie-detail-title grey-text text-darken-1">Бюджет:</p>
                     <p className="movie-detail">
                         {movie.budget} $
                     </p>
                 </div>
                 <div className="movie-detail-container">
-                    <p className="movie-detail-title grey-text text-darken-1">Production companies: </p>
+                    <p className="movie-detail-title grey-text text-darken-1">Компании производители: </p>
                     <p className="movie-detail">
                          {movie.production_companies.map(company => company.name).join(", ")}
                     </p>
                 </div>
                 <div className="movie-detail-container">
-                    <p className="movie-detail-title grey-text text-darken-1">Production countries: </p>
+                    <p className="movie-detail-title grey-text text-darken-1">Страны производители: </p>
                     <p className="movie-detail">
                          {movie.production_countries.map(country => country.name).join(", ")}
                     </p>
                 </div>
                 <div className="movie-detail-container">
-                    <p className="movie-detail-title grey-text text-darken-1">Release: </p>
+                    <p className="movie-detail-title grey-text text-darken-1">Выход: </p>
                     <p className="movie-detail">{movie.release_date}</p>
                 </div>
                 <div className="movie-detail-container">
-                    <p className="movie-detail-title grey-text text-darken-1">Duration: </p>
+                    <p className="movie-detail-title grey-text text-darken-1">Длительность: </p>
                     <p className="movie-detail">{movie.runtime} min</p>
                 </div>
                 <div className="movie-detail-container">
-                    <p className="movie-detail-title grey-text text-darken-1">Overview: </p>
-                    <p className="movie-detail">{movie.overview} min</p>
+                    <p className="movie-detail-title grey-text text-darken-1">Описание: </p>
+                    <p className="movie-detail">{movie.overview}</p>
                 </div>
                 <div className="movie-detail-container">
-                    <p className="movie-detail-title grey-text text-darken-1">Revenue: </p>
+                    <p className="movie-detail-title grey-text text-darken-1">Бюджет: </p>
                     <p className="movie-detail">{movie.revenue} $</p>
                 </div>
             </div>

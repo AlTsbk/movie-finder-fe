@@ -31,7 +31,7 @@ export const CommentsPart = ({movieId}) => {
     
     return (
         <div className="comments-section">
-            <h3>Reviews</h3>
+            <h3>Рецензии</h3>
             <CommentForm movieId={movieId} getComments={getComments}/>
             <UserComments comments={comments}/>
         </div>

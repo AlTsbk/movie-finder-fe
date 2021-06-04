@@ -39,9 +39,9 @@ export const Navbar = () => {
                     <Search />
                     <div>
                         <ul id="nav-mobile" className="right hide-on-med-and-down">
-                            <li className={isAdmin ? "" : "hide"}><NavLink to="/adminPanel">AdminPanel</NavLink></li>
-                            <li><NavLink to={`/user/${auth.userId}`}>Profile</NavLink></li>
-                            <li><NavLink onClick={logoutHandler} to="/">Logout</NavLink></li>
+                            <li className={isAdmin ? "" : "hide"}><NavLink to="/adminPanel">Панель администратора</NavLink></li>
+                            <li><NavLink to={`/user/${auth.userId}`}>Профиль</NavLink></li>
+                            <li><NavLink onClick={logoutHandler} to="/">Выйти</NavLink></li>
                         </ul>
                     </div>
                 </div>
@@ -57,7 +57,7 @@ export const Navbar = () => {
                     <Search />
                     <div>
                         <ul id="nav-mobile" className="right hide-on-med-and-down">
-                            <li><NavLink to="/login">Login</NavLink></li>
+                            <li><NavLink to="/login">Войти</NavLink></li>
                         </ul> 
                     </div>
                 </div>

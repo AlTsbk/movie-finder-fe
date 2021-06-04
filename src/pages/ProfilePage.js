@@ -122,28 +122,28 @@ export const ProfilePage = () => {
             <div className="profile-info">
                 <div>
                     <h6 className="grey-text text-darken-2">Email: {user.email}</h6>
-                    <h6 className="grey-text text-darken-2">Role: {user.role}</h6>
-                    <h6 className="grey-text text-darken-2">Status: {formatter.statusFormatter(user.status)}</h6>
+                    <h6 className="grey-text text-darken-2">Роль: {user.role}</h6>
+                    <h6 className="grey-text text-darken-2">Статус: {formatter.statusFormatter(user.status)}</h6>
                 </div>
                 <div>
-                    <h6 className="grey-text text-darken-2">Noted: {user.likedMovies.length + user.dislikedMovies.length}</h6>
-                    <h6 className="grey-text text-darken-2">Liked: {user.likedMovies.length}</h6>
-                    <h6 className="grey-text text-darken-2">Disliked: {user.dislikedMovies.length}</h6>
+                    <h6 className="grey-text text-darken-2">Оценено: {user.likedMovies.length + user.dislikedMovies.length}</h6>
+                    <h6 className="grey-text text-darken-2">Понравилось: {user.likedMovies.length}</h6>
+                    <h6 className="grey-text text-darken-2">Не понравилось: {user.dislikedMovies.length}</h6>
                 </div>
             </div>
             <div className={user.likedMovies.length ? "profile-charts" : "profile-charts hide"}>
                 <div className="doughnut-charts">
                     <div className="genres-chart">
-                        <h4 className="grey-text text-darken-2 chart-title">Favorite Genres</h4>
+                        <h4 className="grey-text text-darken-2 chart-title">Любимые жанры</h4>
                         <Doughnut data={genresDataSet}/>
                     </div>
                     <div className="directors-chart">
-                        <h4 className="grey-text text-darken-2 chart-title">Favorite Directors</h4>
+                        <h4 className="grey-text text-darken-2 chart-title">Любимые режисеры</h4>
                         <Doughnut data={directorsDataSet}/>
                     </div>
                 </div>
                 <div className="actors-chart">
-                    <h4 className="grey-text text-darken-2 chart-title">Favorite Actors</h4>
+                    <h4 className="grey-text text-darken-2 chart-title">Любимые Актеры</h4>
                     <Bar data={actorsDataSet}/>
                 </div>
             </div>

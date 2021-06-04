@@ -62,15 +62,15 @@ export const BestMovieForYou = () => {
     if(!bestMovie){
         return(
             <div>
-                <h4 className="section-title">The Best Movie for You</h4>
-                <h6 className="section-info">You need to like something for get recomendations</h6>
+                <h4 className="section-title">Лучший фильм для вас</h4>
+                <h6 className="section-info">Для получения рекомендаций необходимо оценивать фильмы</h6>
             </div>
         )
     }
     
     return(
         <div>
-            <h4 className="section-title">The Best Movie for You</h4>
+            <h4 className="section-title">Лучший фильм для вас</h4>
             <DetailsPart movieId={bestMovie} />
         </div>
     )

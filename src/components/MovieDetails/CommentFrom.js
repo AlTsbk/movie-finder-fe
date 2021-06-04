@@ -29,7 +29,7 @@ export const CommentForm = ({movieId, getComments}) => {
     if(!isAuthenticated){
         return (
             <div class="center-align">
-                <p className="no-comments-message">Login for leave review</p>
+                <p className="no-comments-message">Войдите что бы оставить рецензию</p>
             </div>
             
         )
@@ -41,7 +41,7 @@ export const CommentForm = ({movieId, getComments}) => {
             <div className="row">
                 <div className="input-field col s12">
                     <textarea id="textarea1" value={comment} onChange={onCommentChange} className="materialize-textarea"></textarea>
-                    <label for="textarea1">Your Comment</label>
+                    <label for="textarea1">Ваша рецензия</label>
                 </div>
                 <a onClick={addComment} class="waves-effect waves-light btn col s10 offset-s1 yellow darken-4"><i class="material-icons right">send</i>send</a>
             </div>

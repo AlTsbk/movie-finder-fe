@@ -63,7 +63,7 @@ export const RecomendationSection = () => {
 
     return(
         <div>
-            <h4 class="section-title">Because you liked "{movieTitle}"</h4>
+            <h4 class="section-title">Потому что вам понравился фильм "{movieTitle}"</h4>
             <Slider autoplay={true} autoplaySpeed={3000} slidesToShow={4} slidesToScroll={4} responsive={configValues.respValForSlider}>
                 {renderSlides()}
             </Slider>

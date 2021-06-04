@@ -35,17 +35,17 @@ export const AuthPage = () => {
     return (
         <div className="log-in-page">
             <div className="center-align log-in-form">
-                <h3>LOG IN</h3>
+                <h3>ВОЙТИ</h3>
                 <div className="input-field">
                     <input id="email_inline" type="email" className="validate" onChange={changeHandler}/>
                     <label>Email</label>
                 </div>
                 <div className="input-field">
                     <input id="password_inline" type="password" className="validate" onChange={changeHandler}/>
-                    <label>Password</label>
+                    <label>Пароль</label>
                 </div>
-                <a className="waves-effect waves-light btn-large yellow darken-4" onClick={loginHandler} disabled={loading}>Submit</a>
-                <a className="waves-effect waves-light btn-large yellow darken-4 grey darken-4" href="/register">Register</a>
+                <a className="waves-effect waves-light btn-large yellow darken-4" onClick={loginHandler} disabled={loading}>Войти</a>
+                <a className="waves-effect waves-light btn-large yellow darken-4 grey darken-4" href="/register">Зарегестрироваться</a>
             </div>
         </div>
     );

@@ -11,20 +11,20 @@ export const UserTable = ({users, getUsers}) => {
 
     if(!users.length){
         return (
-            <h1>No Data</h1>
+            <h1>Нет данных</h1>
         )
     }
     return (
         <div>
-        <h1>Users</h1>
+        <h1>Пользователи</h1>
         <table className="responsive-table">
             <thead>
             <tr>
                 <th>№</th>
-                <th>Name</th>
-                <th>Status</th>
-                <th>Role</th>
-                <th>Admin</th>
+                <th>Имя</th>
+                <th>Фамилия</th>
+                <th>Роль</th>
+                <th>Админ</th>
                 <th></th>
             </tr>
             </thead>

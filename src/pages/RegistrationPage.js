@@ -61,29 +61,29 @@ export const RegistrationPage = () => {
     return (
         <div className="log-in-page">
             <div className="center-align log-in-form">
-                <h3>REGISTER</h3>
+                <h3>РЕГИСТРАЦИЯ</h3>
                 <div className="input-field">
                     <input id="email_inline" type="email" name="email" className="validate" onChange={changeHandler}/>
                     <label>Email</label>
                 </div>
                 <div className="input-field">
                     <input id="password_inline" type="password" name="password" className="validate" onChange={changePasswordHandler}/>
-                    <label>Password</label>
+                    <label>Пароль</label>
                 </div>
                 <div className="input-field">
                     <input id="confirm_password_inline" type="password" name="confirmPassword" className="validate" onChange={changePasswordHandler}/>
-                    <label>Confirm password</label>
+                    <label>Подтверждение пароля</label>
                 </div>
                 <div className="input-field">
                     <input id="name_inline" type="text" name="name" className="validate" onChange={changeHandler}/>
-                    <label>Name</label>
+                    <label>Имя</label>
                 </div>
                 <div className="input-field">
                     <input id="surname_inline" type="text" name="surname" className="validate" onChange={changeHandler}/>
-                    <label>Surname</label>
+                    <label>Фамилия</label>
                 </div>
-                <a className="waves-effect waves-light btn-large yellow darken-4" onClick={registerHandler} disabled={loading}>Submit</a>
-                <a className="waves-effect waves-light btn-large grey darken-4" href="/login">Log In</a>
+                <a className="waves-effect waves-light btn-large yellow darken-4" onClick={registerHandler} disabled={loading}>Зарегестрироваться</a>
+                <a className="waves-effect waves-light btn-large grey darken-4" href="/login">Войти</a>
             </div>
         </div>
     ) 

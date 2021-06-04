@@ -13,7 +13,7 @@ export const movieApi = ()=> {
         const {data} = await axios.get(nowPlaying, {
             params: {
                 api_key: apiKey,
-                language: "en_US",
+                language: "ru",
                 page: 1
             }
         });
@@ -29,7 +29,7 @@ export const movieApi = ()=> {
         const {data} = await axios.get(topRated, {
             params: {
                 api_key: apiKey,
-                language: "en_US",
+                language: "ru",
                 page: 1
             }
         });
@@ -45,7 +45,7 @@ export const movieApi = ()=> {
         const {data} = await axios.get(movieDetails + id, {
             params: {
                 api_key: apiKey,
-                language: "en_US"
+                language: "ru"
             }
         });
 
@@ -59,7 +59,7 @@ export const movieApi = ()=> {
         const {data} = await axios.get(movieDetails + id + "/recommendations", {
             params: {
                 api_key: apiKey,
-                language: "en_US"
+                language: "ru"
             }
         });
 
@@ -75,7 +75,7 @@ export const movieApi = ()=> {
         const {data} = await axios.get(movieDetails + id + "/credits", {
             params: {
                 api_key: apiKey,
-                language: "en_US"
+                language: "ru"
             }
         });
 
@@ -86,7 +86,7 @@ export const movieApi = ()=> {
         const {data} = await axios.get(search, {
             params: {
                 api_key: apiKey,
-                language: "en_US",
+                language: "ru",
                 query: searchText
             }
         });

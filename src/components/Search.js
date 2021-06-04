@@ -12,7 +12,7 @@ export const Search = () => {
     return (
         <div className="search">
             <div className="input-field">
-                <input value={searchText} onChange={onSearchChange} className="search-input" placeholder="Search" id="search-input" type="text"/>
+                <input value={searchText} onChange={onSearchChange} className="search-input" placeholder="Поиск" id="search-input" type="text"/>
             </div>
             <div className="search-btn">
                 <NavLink to={"/findMovie/" + searchText}><i class="material-icons">search</i></NavLink>

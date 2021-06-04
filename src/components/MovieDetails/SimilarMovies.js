@@ -63,7 +63,7 @@ export const SimilarMovies = ({ movieId }) => {
 
     return(
         <div>
-            <h4 class="section-title">Similar Movies</h4>
+            <h4 class="section-title">Похожие фильмы</h4>
             <Slider autoplay={true} autoplaySpeed={3000} slidesToShow={4} slidesToScroll={4} responsive={configValues.respValForSlider}>
                 {renderSlides()}
             </Slider>

@@ -36,7 +36,7 @@ export const TopRatedSection = () => {
 
     return (
         <div>
-            <Link><h4 class="section-title">Top Rated Movies</h4></Link>
+            <Link><h4 class="section-title">Фильмы с высшим рейтингом</h4></Link>
             <Slider autoplay={true} autoplaySpeed={3000} slidesToShow={4} slidesToScroll={4} responsive={configValues.respValForSlider}>
                 {renderSlides()}
             </Slider>
